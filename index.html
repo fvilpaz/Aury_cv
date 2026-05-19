@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Áurea Blanco Lorenzo</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,800&family=Geist+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #111318;
+      --paper: #fafaf8;
+      --card: #ffffff;
+      --muted: #888f9e;
+      --rule: #e8e6e1;
+      --blue: #7a2040;
+      --rust: #b56a10;
+      --sage: #2a7a4b;
+      --yellow: #f0c530;
+      --bg-contact: #fafafa;
+      --bg-sidebar: #f5f4f0;
+      --text-p: #4a5060;
+      --badge-done-bg: #f3e0e6;
+      --badge-done-text: #7a2040;
+      --badge-wip-bg: #fef3e2;
+      --badge-wip-text: #7a4010;
+    }
+
+    body.dark-mode {
+      --ink: #fafaf8;
+      --paper: #111318;
+      --card: #181a20;
+      --muted: #9ba1b0;
+      --rule: #2a2e38;
+      --blue: #d45e8a;
+      --rust: #e8a840;
+      --sage: #56c483;
+      --yellow: #f5d356;
+      --bg-contact: #1d2027;
+      --bg-sidebar: #14161b;
+      --text-p: #a0a6b5;
+      --badge-done-bg: #3a1a24;
+      --badge-done-text: #e88ab0;
+      --badge-wip-bg: #3a2a0a;
+      --badge-wip-text: #f0c870;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* ──────────────── LAYOUT ──────────────── */
+    .page {
+      max-width: 1020px;
+      margin: 44px auto;
+      background: var(--card);
+      box-shadow: 0 0 0 1px var(--rule), 0 8px 48px -8px rgba(0, 0, 0, .14);
+    }
+
+    /* ──────────────── HEADER ──────────────── */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr 280px 200px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .header-name {
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1.5px solid var(--rule);
+    }
+
+    .header-name .name {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.88;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .header-name .name-accent {
+      color: var(--blue);
+    }
+
+    .header-contact {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--bg-contact);
+      border-right: 2px solid var(--ink);
+    }
+
+    .contact-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contact-links a,
+    .contact-links span {
+      font-family: 'Geist Mono', monospace;
+      font-size: .75rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-links a:hover {
+      color: var(--blue);
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    .header-available {
+      font-family: 'Geist Mono', monospace;
+      font-size: .6rem;
+      color: var(--muted);
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .header-right {
+      overflow: hidden;
+    }
+
+    .header-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    /* ──────────────── BODY ──────────────── */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+    }
+
+    .main {
+      padding: 52px 56px;
+      border-right: 1.5px solid var(--rule);
+    }
+
+    .sidebar {
+      padding: 52px 40px;
+      background: var(--bg-sidebar);
+    }
+
+    /* ──────────────── SECTION ──────────────── */
+    .sec {
+      margin-bottom: 48px;
+    }
+
+    .sec:last-child {
+      margin-bottom: 0;
+    }
+
+    .sec-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sec-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ──────────────── PERFIL ──────────────── */
+    .perfil-text {
+      font-size: .95rem;
+      color: var(--text-p);
+      line-height: 1.75;
+      border-left: 3px solid var(--blue);
+      padding-left: 20px;
+    }
+
+    /* ──────────────── EXPERIENCE ENTRIES ──────────────── */
+    .xp {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .xp:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .xp-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .xp-title {
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    .xp-date {
+      font-family: 'Geist Mono', monospace;
+      font-size: .68rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .xp-where {
+      font-family: 'Geist Mono', monospace;
+      font-size: .7rem;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    .xp p {
+      font-size: .86rem;
+      color: var(--text-p);
+      line-height: 1.6;
+    }
+
+    /* ──────────────── SIDEBAR ──────────────── */
+    .sb-sec {
+      margin-bottom: 40px;
+    }
+
+    .sb-sec:last-child {
+      margin-bottom: 0;
+    }
+
+    .sb-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      padding-top: 4px;
+      border-bottom: 1px solid var(--rule);
+      display: block;
+    }
+
+    /* Skills */
+    .skill-cat {
+      font-family: 'Geist Mono', monospace;
+      font-size: .62rem;
+      color: var(--muted);
+      letter-spacing: .1em;
+      margin-bottom: 7px;
+      margin-top: 14px;
+    }
+
+    .skill-cat:first-of-type {
+      margin-top: 0;
+    }
+
+    .stags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .stag {
+      font-family: 'Geist Mono', monospace;
+      font-size: .65rem;
+      padding: 4px 9px;
+      border-radius: 3px;
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: .03em;
+    }
+
+    .stag-mgmt     { background: #7a2040; }
+    .stag-events   { background: #2a7a4b; }
+    .stag-protocol { background: #5a2a7a; }
+    .stag-client   { background: #b56a10; }
+    .stag-sales    { background: #9b3030; }
+    .stag-team     { background: #3d6b1a; }
+    .stag-hotel    { background: #1a6080; }
+    .stag-pos      { background: #333; }
+
+    /* Certs */
+    .cert {
+      margin-bottom: 15px;
+      padding-left: 10px;
+      border-left: 2px solid var(--blue);
+    }
+
+    .cert:last-child {
+      margin-bottom: 0;
+    }
+
+    .cert-name {
+      font-weight: 600;
+      font-size: .83rem;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .cert-detail {
+      font-family: 'Geist Mono', monospace;
+      font-size: .66rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'Geist Mono', monospace;
+      font-size: .6rem;
+      font-weight: 500;
+      letter-spacing: .07em;
+      padding: 2px 6px;
+      text-transform: uppercase;
+    }
+
+    .badge.done {
+      background: var(--badge-done-bg);
+      color: var(--badge-done-text);
+    }
+
+    /* Languages */
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: .82rem;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .lang-row span:first-child {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: .82rem;
+    }
+
+    /* Otros datos */
+    .info-item {
+      font-family: 'Geist Mono', monospace;
+      font-size: .72rem;
+      color: var(--text-p);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ──────────────── FLOATING BUTTONS ──────────────── */
+    .floating-btns {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .btn-pdf,
+    .btn-lang,
+    .btn-theme {
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      padding: 12px 24px;
+      font-family: 'Geist Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      outline: 3px solid var(--yellow);
+      outline-offset: -1px;
+      transition: background .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-theme {
+      padding: 0;
+      width: 40px;
+      height: 40px;
+    }
+
+    .btn-pdf,
+    .btn-lang {
+      padding: 0 20px;
+      height: 40px;
+    }
+
+    .btn-pdf:hover,
+    .btn-lang:hover,
+    .btn-theme:hover {
+      background: var(--blue);
+    }
+
+    /* ──────────────── PRINT ──────────────── */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body.dark-mode {
+        --ink: #111318;
+        --paper: #fafaf8;
+        --card: #ffffff;
+        --muted: #888f9e;
+        --rule: #e8e6e1;
+        --blue: #7a2040;
+        --rust: #b56a10;
+        --sage: #2a7a4b;
+        --yellow: #f0c530;
+        --bg-contact: #fafafa;
+        --bg-sidebar: #f5f4f0;
+        --text-p: #4a5060;
+        --badge-done-bg: #f3e0e6;
+        --badge-done-text: #7a2040;
+      }
+
+      .page {
+        margin: 0;
+        max-width: 100%;
+        box-shadow: none;
+      }
+
+      .header-name,
+      .header-contact {
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+
+      .header-name .name {
+        font-size: 2.8rem;
+      }
+
+      .main {
+        padding: 24px 40px;
+      }
+
+      .sidebar {
+        padding: 24px 30px;
+      }
+
+      .sec {
+        margin-bottom: 28px;
+      }
+
+      .xp {
+        margin-bottom: 14px;
+        padding-bottom: 14px;
+      }
+
+      .xp p {
+        line-height: 1.45;
+      }
+
+      .floating-btns {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 720px) {
+      .header {
+        grid-template-columns: 1fr 120px;
+      }
+
+      .header-name {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 24px 20px;
+        border-bottom: 1.5px solid var(--rule);
+      }
+
+      .header-right {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0;
+        border-bottom: 1.5px solid var(--rule);
+      }
+
+      .header-contact {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        border-right: none;
+        padding: 24px 20px;
+      }
+
+      .body {
+        grid-template-columns: 1fr;
+      }
+
+      .main {
+        padding: 36px 24px;
+        border-right: none;
+      }
+
+      .sidebar {
+        padding: 36px 24px;
+      }
+
+      .header-name .name {
+        letter-spacing: -1px;
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="floating-btns">
+    <button class="btn-theme" id="theme-btn" onclick="toggleTheme()" title="Cambiar tema">
+      <svg id="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg id="icon-sun" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+    <button class="btn-lang" id="lang-btn" onclick="toggleLang()" title="Switch language">
+      <span id="lang-label">EN</span>
+    </button>
+    <button class="btn-pdf" onclick="window.print()" title="Descargar PDF">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      PDF
+    </button>
+  </div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-name">
+        <div class="name">Áurea<br><span class="name-accent">Blanco<br>Lorenzo</span></div>
+      </div>
+      <div class="header-contact">
+        <div class="contact-label">Contacto</div>
+        <div class="contact-links">
+          <a href="mailto:aublanco@gmail.com"><span class="dot"></span>aublanco@gmail.com</a>
+          <a href="tel:+34650784377"><span class="dot"></span>650 784 377</a>
+          <span><span class="dot"></span>Fuengirola, Málaga</span>
+        </div>
+        <div class="header-available">Disponible · Hostelería / Restauración</div>
+      </div>
+      <div class="header-right">
+        <img src="foto_perfil.jpeg" alt="Áurea Blanco Lorenzo" />
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <!-- MAIN -->
+      <main class="main">
+
+        <!-- PERFIL -->
+        <section class="sec">
+          <div class="sec-label">Perfil</div>
+          <p class="perfil-text">Más de 20 años en hostelería de alto nivel, desde Londres hasta la Costa del Sol. Especializada en dirección de sala, gestión de bares y coordinación integral de eventos — MICE, bodas, banquetes y cócteles. Trayectoria en establecimientos de referencia internacional: Hilton, grupos hoteleros de lujo y restaurantes con Estrella Michelin.</p>
+        </section>
+
+        <!-- EXPERIENCIA -->
+        <section class="sec">
+          <div class="sec-label">Experiencia</div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Maitre · Jefa de Bares · Responsable de Eventos</span>
+              <span class="xp-date">2023 – actualidad</span>
+            </div>
+            <div class="xp-where">Holiday World · Benalmádena</div>
+            <p>Dirección de la operativa de sala, bares y eventos en uno de los principales complejos de ocio de la Costa del Sol. Gestión del ciclo completo de evento — propuesta, planificación, coordinación de equipos y ejecución — en bodas, banquetes, cócteles, finger food y programas MICE. Interlocución directa con proveedores, control de presupuesto y garantía del estándar de servicio en un entorno de alto volumen y ritmo de temporada.</p>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Camarera de sala</span>
+              <span class="xp-date">2022 – 2023</span>
+            </div>
+            <div class="xp-where">Higuerón Resort Curio Collection by Hilton · Fuengirola</div>
+            <p>Servicio de sala en resort de lujo cinco estrellas de la colección Curio by Hilton, con exigentes estándares de protocolo y atención a clientela internacional de alto poder adquisitivo.</p>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Camarera de sala</span>
+              <span class="xp-date">2018 – 2022</span>
+            </div>
+            <div class="xp-where">Hotel Yaramar · Fuengirola</div>
+            <p>Servicio de restauración en hotel de referencia en la Costa del Sol durante cuatro temporadas consecutivas.</p>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Camarera de sala</span>
+              <span class="xp-date">2016 – 2018</span>
+            </div>
+            <div class="xp-where">Restaurante Raffles · Benalmádena</div>
+            <p>Atención en sala en restaurante de categoría con clientela nacional e internacional.</p>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Camarera de eventos</span>
+              <span class="xp-date">2008 – 2016</span>
+            </div>
+            <div class="xp-where">Pepe Vieira (★ Michelin) · Asador Ciprés · Casa Acebo · Casa Román · Galicia</div>
+            <p>Servicio en eventos privados y celebraciones de alto nivel, incluyendo el restaurante con Estrella Michelin Pepe Vieira.</p>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Dependienta y camarera</span>
+              <span class="xp-date">2014 – 2016</span>
+            </div>
+            <div class="xp-where">Pastelería A Ponte · Pontevedra</div>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Autónoma · Dependienta en tienda de moda</span>
+              <span class="xp-date">2010 – 2014</span>
+            </div>
+            <div class="xp-where">Marina Moda e Complementos · Pontevedra</div>
+            <p>Gestión propia de tienda de moda y complementos: atención al cliente, control de stock y caja.</p>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Dependienta</span>
+              <span class="xp-date">2008 – 2010</span>
+            </div>
+            <div class="xp-where">Zapatería Montse · Pontevedra</div>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Dependienta y camarera</span>
+              <span class="xp-date">2005 – 2008</span>
+            </div>
+            <div class="xp-where">Patisserie Valerie · Londres</div>
+            <p>Atención al cliente en cadena de pastelerías londinense. Tres años de experiencia en entorno anglosajón con servicio en inglés.</p>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Dependienta y camarera</span>
+              <span class="xp-date">2003 – 2004</span>
+            </div>
+            <div class="xp-where">Pastelería A'Devesa · Pontevedra</div>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Profesora de inglés particular</span>
+              <span class="xp-date">2001 – 2003</span>
+            </div>
+            <div class="xp-where">Cuenta propia · Pontevedra</div>
+            <p>Clases particulares de inglés y apoyo escolar para alumnos de diferentes niveles.</p>
+          </div>
+
+        </section>
+
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <div class="sb-sec">
+          <span class="sb-label">Habilidades</span>
+          <div class="skill-cat">Restauración & Sala</div>
+          <div class="stags">
+            <span class="stag stag-mgmt">Dirección de sala</span>
+            <span class="stag stag-events">Eventos</span>
+            <span class="stag stag-protocol">Protocolo</span>
+          </div>
+          <div class="skill-cat">Atención al Cliente</div>
+          <div class="stags">
+            <span class="stag stag-client">Atención VIP</span>
+            <span class="stag stag-sales">Venta en sala</span>
+            <span class="stag stag-team">Trabajo en equipo</span>
+          </div>
+          <div class="skill-cat">Gestión & Operaciones</div>
+          <div class="stags">
+            <span class="stag stag-hotel">Recepción hotelera</span>
+            <span class="stag stag-pos">TPV</span>
+          </div>
+        </div>
+
+        <div class="sb-sec">
+          <span class="sb-label">Formación</span>
+
+          <div class="cert">
+            <div class="cert-name">Certificado de inglés C1</div>
+            <div class="cert-detail">Dabo Consulting · Málaga · 2021</div>
+            <span class="badge done">✓ Certificado</span>
+          </div>
+
+          <div class="cert">
+            <div class="cert-name">Recepción y atención al cliente</div>
+            <div class="cert-detail">Grupo Aspasia · Málaga · 2023</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+          <div class="cert">
+            <div class="cert-name">Técnicas de venta en hostelería</div>
+            <div class="cert-detail">Dabo Consulting · Málaga · 2021</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+          <div class="cert">
+            <div class="cert-name">Recepción y atención al cliente</div>
+            <div class="cert-detail">Dabo Consulting · Málaga · 2021</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+          <div class="cert">
+            <div class="cert-name">Gestión de la restauración</div>
+            <div class="cert-detail">Dabo Consulting · Málaga · 2020</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+          <div class="cert">
+            <div class="cert-name">Francés A1</div>
+            <div class="cert-detail">Formatec · Málaga · 2022</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+          <div class="cert">
+            <div class="cert-name">Título Nivel Intermediario de inglés</div>
+            <div class="cert-detail">EOI Pontevedra · 2007</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+          <div class="cert">
+            <div class="cert-name">BUP/COU · Ciencias de la Salud</div>
+            <div class="cert-detail">IES Mendiño · Pontevedra · 2000</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+        </div>
+
+        <div class="sb-sec">
+          <span class="sb-label">Idiomas</span>
+          <div class="lang-row"><span>Castellano</span><span>Nativo</span></div>
+          <div class="lang-row"><span>Gallego</span><span>Nativo</span></div>
+          <div class="lang-row"><span>Inglés</span><span>C1 · Alto</span></div>
+          <div class="lang-row"><span>Portugués</span><span>Alto</span></div>
+          <div class="lang-row"><span>Francés</span><span>A1</span></div>
+        </div>
+
+        <div class="sb-sec">
+          <span class="sb-label">Otros datos</span>
+          <div class="info-item"><span class="dot"></span><span>Carnet de conducir B</span></div>
+          <div class="info-item"><span class="dot"></span><span>Informática: nivel usuario</span></div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const _t = {
+      es: {
+        contact_label: 'Contacto',
+        header_available: 'Disponible · Hostelería / Restauración',
+        location: 'Fuengirola, Málaga',
+        sec_perfil: 'Perfil',
+        perfil_p: 'Más de 20 años en hostelería de alto nivel, desde Londres hasta la Costa del Sol. Especializada en dirección de sala, gestión de bares y coordinación integral de eventos — MICE, bodas, banquetes y cócteles. Trayectoria en establecimientos de referencia internacional: Hilton, grupos hoteleros de lujo y restaurantes con Estrella Michelin.',
+        sec_exp: 'Experiencia',
+        xp0_title: 'Maitre · Jefa de Bares · Responsable de Eventos',
+        xp0_date: '2023 – actualidad',
+        xp0_where: 'Holiday World · Benalmádena',
+        xp0_p: 'Dirección de la operativa de sala, bares y eventos en uno de los principales complejos de ocio de la Costa del Sol. Gestión del ciclo completo de evento — propuesta, planificación, coordinación de equipos y ejecución — en bodas, banquetes, cócteles, finger food y programas MICE. Interlocución directa con proveedores, control de presupuesto y garantía del estándar de servicio en un entorno de alto volumen y ritmo de temporada.',
+        xp1_title: 'Camarera de sala',
+        xp1_date: '2022 – 2023',
+        xp1_where: 'Higuerón Resort Curio Collection by Hilton · Fuengirola',
+        xp1_p: 'Servicio de sala en resort de lujo cinco estrellas de la colección Curio by Hilton, con exigentes estándares de protocolo y atención a clientela internacional de alto poder adquisitivo.',
+        xp2_title: 'Camarera de sala',
+        xp2_date: '2018 – 2022',
+        xp2_where: 'Hotel Yaramar · Fuengirola',
+        xp2_p: 'Servicio de restauración en hotel de referencia en la Costa del Sol durante cuatro temporadas consecutivas.',
+        xp3_title: 'Camarera de sala',
+        xp3_date: '2016 – 2018',
+        xp3_where: 'Restaurante Raffles · Benalmádena',
+        xp3_p: 'Atención en sala en restaurante de categoría con clientela nacional e internacional.',
+        xp4_title: 'Camarera de eventos',
+        xp4_date: '2008 – 2016',
+        xp4_where: 'Pepe Vieira (★ Michelin) · Asador Ciprés · Casa Acebo · Casa Román · Galicia',
+        xp4_p: 'Servicio en eventos privados y celebraciones de alto nivel, incluyendo el restaurante con Estrella Michelin Pepe Vieira.',
+        xp5_title: 'Dependienta y camarera',
+        xp5_date: '2014 – 2016',
+        xp5_where: 'Pastelería A Ponte · Pontevedra',
+        xp6_title: 'Autónoma · Dependienta en tienda de moda',
+        xp6_date: '2010 – 2014',
+        xp6_where: 'Marina Moda e Complementos · Pontevedra',
+        xp6_p: 'Gestión propia de tienda de moda y complementos: atención al cliente, control de stock y caja.',
+        xp7_title: 'Dependienta',
+        xp7_date: '2008 – 2010',
+        xp7_where: 'Zapatería Montse · Pontevedra',
+        xp8_title: 'Dependienta y camarera',
+        xp8_date: '2005 – 2008',
+        xp8_where: 'Patisserie Valerie · Londres',
+        xp8_p: 'Atención al cliente en cadena de pastelerías londinense. Tres años de experiencia en entorno anglosajón con servicio en inglés.',
+        xp9_title: 'Dependienta y camarera',
+        xp9_date: '2003 – 2004',
+        xp9_where: "Pastelería A'Devesa · Pontevedra",
+        xp10_title: 'Profesora de inglés particular',
+        xp10_date: '2001 – 2003',
+        xp10_where: 'Cuenta propia · Pontevedra',
+        xp10_p: 'Clases particulares de inglés y apoyo escolar para alumnos de diferentes niveles.',
+        sb_habilidades: 'Habilidades',
+        cat_sala: 'Restauración & Sala',
+        cat_atencion: 'Atención al Cliente',
+        cat_gestion: 'Gestión & Operaciones',
+        sb_formacion: 'Formación',
+        sb_idiomas: 'Idiomas',
+        lang_es: 'Castellano',
+        lang_gl: 'Gallego',
+        lang_en: 'Inglés',
+        lang_pt: 'Portugués',
+        lang_fr: 'Francés',
+        lv_native: 'Nativo',
+        lv_c1: 'C1 · Alto',
+        lv_high: 'Alto',
+        lv_a1: 'A1',
+        sb_otros: 'Otros datos',
+        other_carnet: 'Carnet de conducir B',
+        other_info: 'Informática: nivel usuario',
+        badge_cert: '✓ Certificado',
+        badge_done: '✓ Completado',
+      },
+      en: {
+        contact_label: 'Contact',
+        header_available: 'Available · Hospitality / F&B',
+        location: 'Fuengirola, Málaga, Spain',
+        sec_perfil: 'Profile',
+        perfil_p: 'Over 20 years in high-end hospitality, from London to the Costa del Sol. Specialist in floor management, bar management and full event coordination — MICE, weddings, banquets and cocktail events. Track record at internationally recognised venues: Hilton, luxury hotel groups and Michelin-starred restaurants.',
+        sec_exp: 'Experience',
+        xp0_title: 'Maître · Bar Manager · Events Manager',
+        xp0_date: '2023 – present',
+        xp0_where: 'Holiday World · Benalmádena',
+        xp0_p: 'Leading floor, bar and event operations at one of the Costa del Sol\'s flagship leisure resorts. Full event cycle management — from proposal and planning through team coordination and execution — across weddings, banquets, cocktails, finger food and MICE programmes. Direct liaison with suppliers, budget control and service standard delivery in a high-volume, season-driven environment.',
+        xp1_title: 'Restaurant Floor Staff',
+        xp1_date: '2022 – 2023',
+        xp1_where: 'Higuerón Resort Curio Collection by Hilton · Fuengirola',
+        xp1_p: 'Five-star floor service within the Curio by Hilton collection, meeting exacting protocol standards and delivering personalised attention to high-end international guests.',
+        xp2_title: 'Restaurant Floor Staff',
+        xp2_date: '2018 – 2022',
+        xp2_where: 'Hotel Yaramar · Fuengirola',
+        xp2_p: 'Restaurant service at a Costa del Sol flagship hotel across four consecutive seasons.',
+        xp3_title: 'Restaurant Floor Staff',
+        xp3_date: '2016 – 2018',
+        xp3_where: 'Restaurante Raffles · Benalmádena',
+        xp3_p: 'Floor service in an upscale restaurant with domestic and international clientele.',
+        xp4_title: 'Event Waitress',
+        xp4_date: '2008 – 2016',
+        xp4_where: 'Pepe Vieira (★ Michelin) · Asador Ciprés · Casa Acebo · Casa Román · Galicia',
+        xp4_p: 'Private events and high-end celebrations service, including the Michelin-starred restaurant Pepe Vieira.',
+        xp5_title: 'Sales Assistant & Waitress',
+        xp5_date: '2014 – 2016',
+        xp5_where: 'Pastelería A Ponte · Pontevedra',
+        xp6_title: 'Self-employed · Fashion Store Owner',
+        xp6_date: '2010 – 2014',
+        xp6_where: 'Marina Moda e Complementos · Pontevedra',
+        xp6_p: 'Owner-managed fashion and accessories shop: customer service, stock management, and till operation.',
+        xp7_title: 'Sales Assistant',
+        xp7_date: '2008 – 2010',
+        xp7_where: 'Zapatería Montse · Pontevedra',
+        xp8_title: 'Sales Assistant & Waitress',
+        xp8_date: '2005 – 2008',
+        xp8_where: 'Patisserie Valerie · London',
+        xp8_p: 'Customer service in a London patisserie chain. Three years of experience in a fully English-speaking environment.',
+        xp9_title: 'Sales Assistant & Waitress',
+        xp9_date: '2003 – 2004',
+        xp9_where: "Pastelería A'Devesa · Pontevedra",
+        xp10_title: 'Private English Tutor',
+        xp10_date: '2001 – 2003',
+        xp10_where: 'Self-employed · Pontevedra',
+        xp10_p: 'Private English lessons and academic support for students of different levels.',
+        sb_habilidades: 'Skills',
+        cat_sala: 'Restaurant & Floor',
+        cat_atencion: 'Customer Service',
+        cat_gestion: 'Management & Operations',
+        sb_formacion: 'Education',
+        sb_idiomas: 'Languages',
+        lang_es: 'Spanish',
+        lang_gl: 'Galician',
+        lang_en: 'English',
+        lang_pt: 'Portuguese',
+        lang_fr: 'French',
+        lv_native: 'Native',
+        lv_c1: 'C1 · Advanced',
+        lv_high: 'Advanced',
+        lv_a1: 'A1',
+        sb_otros: 'Additional Info',
+        other_carnet: 'Driving licence (category B)',
+        other_info: 'Basic IT skills',
+        badge_cert: '✓ Certified',
+        badge_done: '✓ Completed',
+      }
+    };
+
+    let _lang = 'es';
+
+    function _sel(selector, idx) {
+      return document.querySelectorAll(selector)[idx] || null;
+    }
+
+    function _setText(el, text) {
+      if (el) el.textContent = text;
+    }
+
+    function applyLang(lang) {
+      const t = _t[lang];
+
+      // Header
+      _setText(_sel('.contact-label', 0), t.contact_label);
+      _setText(_sel('.header-available', 0), t.header_available);
+      const locSpan = document.querySelector('.contact-links > span');
+      if (locSpan && locSpan.lastChild && locSpan.lastChild.nodeType === 3)
+        locSpan.lastChild.textContent = ' ' + t.location;
+
+      // Section labels
+      _setText(_sel('.sec-label', 0), t.sec_perfil);
+      _setText(_sel('.perfil-text', 0), t.perfil_p);
+      _setText(_sel('.sec-label', 1), t.sec_exp);
+
+      // Experience entries
+      const titles = document.querySelectorAll('.xp-title');
+      const dates  = document.querySelectorAll('.xp-date');
+      const wheres = document.querySelectorAll('.xp-where');
+
+      for (let i = 0; i <= 10; i++) {
+        _setText(titles[i], t[`xp${i}_title`]);
+        _setText(dates[i],  t[`xp${i}_date`]);
+        _setText(wheres[i], t[`xp${i}_where`]);
+      }
+
+      // Paragraphs only exist for xp 0,1,2,3,4,6,8,10
+      const parMap = [0, 1, 2, 3, 4, 6, 8, 10];
+      document.querySelectorAll('.xp p').forEach((el, i) => {
+        _setText(el, t[`xp${parMap[i]}_p`]);
+      });
+
+      // Sidebar labels (sec-label indices: 0=perfil, 1=exp — sb-label are separate)
+      _setText(_sel('.sb-label', 0), t.sb_habilidades);
+      const cats = document.querySelectorAll('.skill-cat');
+      _setText(cats[0], t.cat_sala);
+      _setText(cats[1], t.cat_atencion);
+      _setText(cats[2], t.cat_gestion);
+      _setText(_sel('.sb-label', 1), t.sb_formacion);
+
+      // Badges
+      document.querySelectorAll('.badge.done').forEach((el, i) => {
+        el.textContent = i === 0 ? t.badge_cert : t.badge_done;
+      });
+
+      _setText(_sel('.sb-label', 2), t.sb_idiomas);
+      const langSpans = document.querySelectorAll('.lang-row span');
+      _setText(langSpans[0], t.lang_es);  _setText(langSpans[1], t.lv_native);
+      _setText(langSpans[2], t.lang_gl);  _setText(langSpans[3], t.lv_native);
+      _setText(langSpans[4], t.lang_en);  _setText(langSpans[5], t.lv_c1);
+      _setText(langSpans[6], t.lang_pt);  _setText(langSpans[7], t.lv_high);
+      _setText(langSpans[8], t.lang_fr);  _setText(langSpans[9], t.lv_a1);
+
+      _setText(_sel('.sb-label', 3), t.sb_otros);
+      const infoTexts = document.querySelectorAll('.info-item span:last-child');
+      _setText(infoTexts[0], t.other_carnet);
+      _setText(infoTexts[1], t.other_info);
+
+      document.documentElement.lang = lang;
+      document.getElementById('lang-label').textContent = lang === 'es' ? 'EN' : 'ES';
+    }
+
+    function toggleLang() {
+      _lang = _lang === 'es' ? 'en' : 'es';
+      applyLang(_lang);
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      document.getElementById('icon-moon').style.display = isDark ? 'none' : 'block';
+      document.getElementById('icon-sun').style.display  = isDark ? 'block' : 'none';
+    }
+  </script>
+</body>
+
+</html>
