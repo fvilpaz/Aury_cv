@@ -74,7 +74,7 @@
     .header {
       display: grid;
       grid-template-columns: 1fr 280px 200px;
-      border-bottom: 2px solid var(--ink);
+      border-bottom: 2px solid var(--blue);
     }
 
     .header-name {
@@ -105,7 +105,7 @@
       flex-direction: column;
       justify-content: center;
       background-color: var(--bg-contact);
-      border-right: 2px solid var(--ink);
+      border-right: 2px solid var(--blue);
     }
 
     .contact-label {
@@ -439,7 +439,7 @@
     @media print {
       @page {
         size: A4 portrait;
-        margin: 10mm 12mm;
+        margin: 0;
       }
 
       html, body {
@@ -483,27 +483,24 @@
       }
 
       .body {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        height: auto !important;
-        min-height: auto !important;
-        overflow: visible !important;
+        display: table;
+        width: 100%;
+        table-layout: fixed;
       }
 
       .main {
-        flex: 1;
+        display: table-cell;
+        width: auto;
         padding: 20px 36px;
-        height: auto !important;
-        overflow: visible !important;
+        vertical-align: top;
       }
 
       .sidebar {
+        display: table-cell;
         width: 220px;
-        flex-shrink: 0;
         padding: 20px 26px;
-        height: auto !important;
-        overflow: visible !important;
+        vertical-align: top;
+        background: var(--bg-sidebar);
       }
 
       .header-name,
